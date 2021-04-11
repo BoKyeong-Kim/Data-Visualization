@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loading and Parsing CSV Data</title>
+    <script src="https://unpkg.com/d3@5.11.0/dist/d3.min.js"></script>
+    <style>
+      pre {
+        font-size: 7em;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="message-container"></pre>
+    <script>
+
+      const fetchText = async (url) => {
+        const response = await fetch(url);
+        return await response.text();
+      };
+
+      const csvUrl = 'https://gist.githubusercontent.com/BoKyeong-Kim/ac522f3205103f1db0268505d2febd46/raw/8437c5d2fc446bc04a76e330cfba0fb99c5c2084/cssNamedColors.csv'
+
+      fetchText(csvUrl).then(text => {
+        console.log(text);
+      });
+            
+    </script>
+  </body>
+</html>
