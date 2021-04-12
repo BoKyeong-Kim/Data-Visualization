@@ -12,7 +12,7 @@ const App = () => {
     d3.csv(csvUrl).then(setData);
   }, []);
 
-  return <div className='pre'>Data is {data ? message(data) : 'loading....'}</div>;
+  return <div className='pre'>Data is<br/> {data ? message(data) : 'loading....'}</div>;
 };
 
 export default App;

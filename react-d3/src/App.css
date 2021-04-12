@@ -2,6 +2,9 @@ body {
     margin:0px;
     overflow: hidden;
   }
+text {
+  display :block;
+}
 .pre {
     font-size: 3em;
 }
