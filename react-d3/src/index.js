@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import Appbar from './Appbar';
 
 const rootElement =  document.getElementById('root');
 ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <Appbar />
     </React.StrictMode>,
     rootElement
 );
