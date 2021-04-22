@@ -38,7 +38,18 @@ const App = () => {
                 .range([0, innerWidth]);
 
   return <svg width ={width} height={height}>
-    <g transform= {`translate(${margin.left}, ${margin.right})`}>
+    <g transform= {`translate(${margin.left}, ${margin.top})`}>
+    {xScale.ticks().map(tickValue => (
+      <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
+        <line y2={innerHeight} stroke='black'/>
+        <text
+          style = {{ textAnchor : 'middle' }}
+          dy = ".71em"
+          y={innerHeight+3}> 
+          {tickValue}
+        </text>
+      </g>
+    ))}
     {data.map(d => (
           <rect x={0} 
                 y={yScale(d.Country)} 
