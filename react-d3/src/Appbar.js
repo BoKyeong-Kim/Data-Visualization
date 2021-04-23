@@ -51,14 +51,15 @@ const App = () => {
       </g>
     ))}
     {yScale.domain().map(tickValue => (
-      <g key={tickValue} transform={`translate(0, ${yScale(tickValue) + yScale.bandwidth() / 2})`}>
-        <text
+      <text
+          key={tickValue}
           style = {{ textAnchor : 'end' }}
           x={-3}
-          dy=".32em">
+          dy=".32em"
+          y={yScale(tickValue) + yScale.bandwidth() / 2}
+        >
           {tickValue}
         </text>
-      </g>
     ))}
     {data.map(d => (
           <rect x={0} 
