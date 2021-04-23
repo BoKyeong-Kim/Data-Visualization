@@ -3,11 +3,11 @@ import * as d3 from "d3";
 import "./App.css";
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
+import { AxisLeft } from './AxisLeft';
 
 const width = 960;
 const height = 500;
 const margin = { top : 50 , right : 50,  bottom : 50 , left : 200 };
-
 
 
 const App = () => {
@@ -33,23 +33,13 @@ const App = () => {
     <svg width ={width} height={height}>
     <g transform= {`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom xScale={xScale} innerHeight={innerHeight} />
-    {/*{yScale.domain().map(tickValue => (
-      <text
-          key={tickValue}
-          style = {{ textAnchor : 'end' }}
-          x={-3}
-          dy=".32em"
-          y={yScale(tickValue) + yScale.bandwidth() / 2}
-        >
-          {tickValue}
-        </text>
-    ))}
+        <AxisLeft yScale={yScale}/>
     {data.map(d => (
           <rect key ={d.Country}
                 x={0} 
                 y={yScale(d.Country)} 
                 width = {xScale(d.Population)}
-    height = {yScale.bandwidth()} />))} */}
+    height = {yScale.bandwidth()} />))}
       </g>
       </svg>
   )};
