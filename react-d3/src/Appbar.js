@@ -2,6 +2,7 @@ import React from 'react';
 import * as d3 from "d3";
 import "./App.css";
 import { useData } from './useData';
+import { AxisBottom } from './AxisBottom';
 
 const width = 960;
 const height = 500;
@@ -27,20 +28,12 @@ const App = () => {
                 .domain([0, d3.max(data.map(d => d.Population))])
                 .range([0, innerWidth]);
 
-  return <svg width ={width} height={height}>
+  
+  return (
+    <svg width ={width} height={height}>
     <g transform= {`translate(${margin.left}, ${margin.top})`}>
-    {xScale.ticks().map(tickValue => (
-      <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
-        <line y2={innerHeight} stroke='black'/>
-        <text
-          style = {{ textAnchor : 'middle' }}
-          dy = ".71em"
-          y={innerHeight+3}> 
-          {tickValue}
-        </text>
-      </g>
-    ))}
-    {yScale.domain().map(tickValue => (
+        <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+    {/*{yScale.domain().map(tickValue => (
       <text
           key={tickValue}
           style = {{ textAnchor : 'end' }}
@@ -56,10 +49,9 @@ const App = () => {
                 x={0} 
                 y={yScale(d.Country)} 
                 width = {xScale(d.Population)}
-                height = {yScale.bandwidth()} />))}
-    </g>
-  </svg>
-
-  };
+    height = {yScale.bandwidth()} />))} */}
+      </g>
+      </svg>
+  )};
 
 export default App;
