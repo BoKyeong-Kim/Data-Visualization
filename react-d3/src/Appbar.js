@@ -5,7 +5,7 @@ import "./App.css";
 const csvUrl = 'https://gist.githubusercontent.com/BoKyeong-Kim/d39d56276edefd0999731e76dbdcb805/raw/d08ce4d95e4bf94261c53d3490deb555f357be36/UN_Population_2019.csv'
 const width = 960;
 const height = 500;
-const margin = { top : 50 , right : 50,  bottom : 50 , left : 50 };
+const margin = { top : 50 , right : 50,  bottom : 50 , left : 200 };
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -46,6 +46,16 @@ const App = () => {
           style = {{ textAnchor : 'middle' }}
           dy = ".71em"
           y={innerHeight+3}> 
+          {tickValue}
+        </text>
+      </g>
+    ))}
+    {yScale.domain().map(tickValue => (
+      <g key={tickValue} transform={`translate(0, ${yScale(tickValue) + yScale.bandwidth() / 2})`}>
+        <text
+          style = {{ textAnchor : 'end' }}
+          x={-3}
+          dy=".32em">
           {tickValue}
         </text>
       </g>
