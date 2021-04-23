@@ -1,26 +1,16 @@
-import React, { useState,  useEffect } from 'react';
+import React from 'react';
 import * as d3 from "d3";
 import "./App.css";
+import { useData } from './useData';
 
-const csvUrl = 'https://gist.githubusercontent.com/BoKyeong-Kim/d39d56276edefd0999731e76dbdcb805/raw/d08ce4d95e4bf94261c53d3490deb555f357be36/UN_Population_2019.csv'
 const width = 960;
 const height = 500;
 const margin = { top : 50 , right : 50,  bottom : 50 , left : 200 };
 
+
+
 const App = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const row = (d) => {
-      d.Population = +d['2020'];
-      return d;
-    };
-    d3.csv(csvUrl, row).then((data) => {
-      setData(data.slice(0, 10));
-    });
-  }, []);
-
-  console.log(data);
+  const data = useData();
 
   if(!data) {
     return <pre>loading...</pre>
