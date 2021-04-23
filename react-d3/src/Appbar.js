@@ -62,7 +62,8 @@ const App = () => {
         </text>
     ))}
     {data.map(d => (
-          <rect x={0} 
+          <rect key ={d.Country}
+                x={0} 
                 y={yScale(d.Country)} 
                 width = {xScale(d.Population)}
                 height = {yScale.bandwidth()} />))}
