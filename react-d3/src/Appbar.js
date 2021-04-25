@@ -10,7 +10,6 @@ const width = 960;
 const height = 500;
 const margin = { top : 50 , right : 50,  bottom : 50 , left : 200 };
 
-
 const App = () => {
   const data = useData();
 
@@ -21,12 +20,16 @@ const App = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
+  const xValue = d => d.Population;
+  const yValue = d => d.Country;
+
+
   const yScale = d3.scaleBand()
-                 .domain(data.map(d => d.Country))
+                 .domain(data.map(yValue))
                  .range([0, innerHeight]);
   
   const xScale = d3.scaleLinear()
-                .domain([0, d3.max(data.map(d => d.Population))])
+                .domain([0, d3.max(data.map(xValue))])
                 .range([0, innerWidth]);
 
   
@@ -35,7 +38,7 @@ const App = () => {
     <g transform= {`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom xScale={xScale} innerHeight={innerHeight} />
         <AxisLeft yScale={yScale}/>
-        <Marks data={data} xScale={xScale} yScale={yScale}/>
+        <Marks data={data} xScale={xScale} yScale={yScale} xValue={xValue} yValue={yValue}/>
       </g>
       </svg>
   )};
