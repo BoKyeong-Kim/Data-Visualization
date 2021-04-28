@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 body {
     margin:0px;
     overflow: hidden;
+    font-family: 'Josefin Sans', cursive;
   }
 text {
   display :block;
 }
 .pre {
     font-size: 3em;
+}
+.tick line {
+  stroke: #C0C0BB;
+}
+.tick text {
+  fill: #828883;
 }
