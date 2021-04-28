@@ -8,7 +8,7 @@ import { Marks } from './Marks';
 
 const width = 960;
 const height = 500;
-const margin = { top : 50 , right : 50,  bottom : 50 , left : 200 };
+const margin = { top : 50 , right : 50,  bottom : 40 , left : 220 };
 
 const App = () => {
   const data = useData();
@@ -26,7 +26,8 @@ const App = () => {
 
   const yScale = d3.scaleBand()
                  .domain(data.map(yValue))
-                 .range([0, innerHeight]);
+                 .range([0, innerHeight])
+                 .paddingInner(0.15);
   
   const xScale = d3.scaleLinear()
                 .domain([0, d3.max(data.map(xValue))])
