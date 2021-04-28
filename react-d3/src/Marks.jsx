@@ -1,6 +1,6 @@
 export const Marks = ({ data, xScale, yScale, xValue, yValue }) => 
  data.map(d => (
-    <rect key ={yValue(d)}
+    <rect className="mark" key ={yValue(d)}
           x={0} 
           y={yScale(yValue(d))} 
           width = {xScale(xValue(d))}
