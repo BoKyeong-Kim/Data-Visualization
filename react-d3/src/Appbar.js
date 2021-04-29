@@ -25,7 +25,7 @@ const App = () => {
   const yValue = d => d.Country;
 
   const siFormat = d3.format(".2s");
-  const xAisxTickFormat = tickFormat => siFormat(tickFormat).replace('G', 'B');
+  const xAxisTickFormat = tickFormat => siFormat(tickFormat).replace('G', 'B');
 
 
   const yScale = d3.scaleBand()
@@ -44,7 +44,7 @@ const App = () => {
         <AxisBottom 
           xScale={xScale} 
           innerHeight={innerHeight} 
-          tickFormat={xAisxTickFormat}
+          tickFormat={xAxisTickFormat}
         />
         <AxisLeft yScale={yScale}/>
         <text 
@@ -55,7 +55,13 @@ const App = () => {
         >
           Population
         </text>
-        <Marks data={data} xScale={xScale} yScale={yScale} xValue={xValue} yValue={yValue}/>
+        <Marks 
+          data={data} 
+          xScale={xScale} 
+          yScale={yScale} 
+          xValue={xValue} 
+          yValue={yValue} 
+          tooltipFormat={xAxisTickFormat}/>
       </g>
       </svg>
   )};
