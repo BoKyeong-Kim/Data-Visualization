@@ -7,8 +7,8 @@ import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
 
 const width = 960;
-const height = 500;
-const margin = { top : 50 , right : 50,  bottom : 40 , left : 220 };
+const height = 550;
+const margin = { top : 50 , right : 50,  bottom : 80 , left : 220 };
 
 const App = () => {
   const data = useData();
@@ -39,6 +39,14 @@ const App = () => {
     <g transform= {`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom xScale={xScale} innerHeight={innerHeight} />
         <AxisLeft yScale={yScale}/>
+        <text 
+          className ='axis-label'
+          x={innerWidth/2} 
+          y={innerHeight+45} 
+          textAnchor="middle"
+        >
+          Population
+        </text>
         <Marks data={data} xScale={xScale} yScale={yScale} xValue={xValue} yValue={yValue}/>
       </g>
       </svg>
