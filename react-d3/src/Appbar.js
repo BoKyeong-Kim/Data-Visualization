@@ -24,6 +24,9 @@ const App = () => {
   const xValue = d => d.Population;
   const yValue = d => d.Country;
 
+  const siFormat = d3.format(".2s");
+  const xAisxTickFormat = tickFormat => siFormat(tickFormat).replace('G', 'B');
+
 
   const yScale = d3.scaleBand()
                  .domain(data.map(yValue))
@@ -38,7 +41,11 @@ const App = () => {
   return (
     <svg width ={width} height={height}>
     <g transform= {`translate(${margin.left}, ${margin.top})`}>
-        <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+        <AxisBottom 
+          xScale={xScale} 
+          innerHeight={innerHeight} 
+          tickFormat={xAisxTickFormat}
+        />
         <AxisLeft yScale={yScale}/>
         <text 
           className ='axis-label'
