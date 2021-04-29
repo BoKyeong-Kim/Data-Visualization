@@ -9,6 +9,7 @@ import { Marks } from './Marks';
 const width = 960;
 const height = 550;
 const margin = { top : 50 , right : 50,  bottom : 80 , left : 220 };
+const xAxisLabelOffset = 45;
 
 const App = () => {
   const data = useData();
@@ -42,7 +43,7 @@ const App = () => {
         <text 
           className ='axis-label'
           x={innerWidth/2} 
-          y={innerHeight+45} 
+          y={innerHeight+xAxisLabelOffset} 
           textAnchor="middle"
         >
           Population

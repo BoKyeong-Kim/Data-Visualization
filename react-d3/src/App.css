@@ -22,4 +22,5 @@ text {
 }
 .axis-label {
   font-size : 1.5em;
+  fill: #828883;
 }
