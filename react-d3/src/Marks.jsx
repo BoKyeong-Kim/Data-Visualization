@@ -1,5 +1,8 @@
-export const Marks = ({ data, xScale, yScale, xValue, yValue, tooltipFormat }) => 
- data.map(d => (
+import { Tooltip } from '@material-ui/core';
+
+export const Marks = ({ data, xScale, yScale, xValue, yValue }) => 
+ data.map(d => (<>
+      <Tooltip title={xValue(d)} placement="top">
       <rect 
             className="mark" 
             key ={yValue(d)}
@@ -7,6 +10,7 @@ export const Marks = ({ data, xScale, yScale, xValue, yValue, tooltipFormat }) =
             y={yScale(yValue(d))} 
             width = {xScale(xValue(d))}
             height = {yScale.bandwidth()} >
-      <title>{tooltipFormat(xValue(d))}</title>
       </rect>
+      </Tooltip>
+      </>
 ))

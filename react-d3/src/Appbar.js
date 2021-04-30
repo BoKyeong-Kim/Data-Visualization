@@ -1,10 +1,12 @@
 import React from 'react';
 import * as d3 from "d3";
+import useStyles from './styles';
 import "./App.css";
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
+
 
 const width = 960;
 const height = 550;
@@ -12,6 +14,7 @@ const margin = { top : 50 , right : 50,  bottom : 80 , left : 220 };
 const xAxisLabelOffset = 45;
 
 const App = () => {
+  const classes = useStyles();
   const data = useData();
 
   if(!data) {
@@ -39,6 +42,7 @@ const App = () => {
 
   
   return (
+    <div className={classes.root}>
     <svg width ={width} height={height}>
     <g transform= {`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom 
@@ -60,10 +64,11 @@ const App = () => {
           xScale={xScale} 
           yScale={yScale} 
           xValue={xValue} 
-          yValue={yValue} 
-          tooltipFormat={xAxisTickFormat}/>
+          yValue={yValue}
+          />
       </g>
       </svg>
+  </div>
   )};
 
 export default App;
