@@ -3,14 +3,12 @@ import { Tooltip } from '@material-ui/core';
 export const Marks = ({ data, xScale, yScale, xValue, yValue }) => 
  data.map(d => (<>
       <Tooltip title={xValue(d)} placement="top">
-      <rect 
+      <circle 
             className="mark" 
-            key ={yValue(d)}
-            x={0} 
-            y={yScale(yValue(d))} 
-            width = {xScale(xValue(d))}
-            height = {yScale.bandwidth()} >
-      </rect>
+            cx={xScale(xValue(d))} 
+            cy={yScale(yValue(d))} 
+            r = {10} >
+      </circle>
       </Tooltip>
       </>
 ))

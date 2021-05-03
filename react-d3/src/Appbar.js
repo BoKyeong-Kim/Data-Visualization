@@ -24,22 +24,19 @@ const App = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  const xValue = d => d.Population;
-  const yValue = d => d.Country;
+  const xValue = d => d.sepal_length;
+  const yValue = d => d.sepal_width;
 
   const siFormat = d3.format(".2s");
   const xAxisTickFormat = tickFormat => siFormat(tickFormat).replace('G', 'B');
 
-
-  const yScale = d3.scaleBand()
-                 .domain(data.map(yValue))
-                 .range([0, innerHeight])
-                 .paddingInner(0.15);
-  
   const xScale = d3.scaleLinear()
-                .domain([0, d3.max(data.map(xValue))])
+                .domain(d3.extent(data, xValue))
                 .range([0, innerWidth]);
 
+  const yScale = d3.scaleLinear()
+                 .domain(d3.extent(data, yValue))
+                 .range([0, innerHeight]);
   
   return (
     <div className={classes.root}>
