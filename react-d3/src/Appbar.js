@@ -9,9 +9,9 @@ import { Marks } from './Marks';
 
 
 const width = 960;
-const height = 550;
-const margin = { top : 50 , right : 50,  bottom : 80 , left : 220 };
-const xAxisLabelOffset = 45;
+const height = 500;
+const margin = { top: 20, right: 30, bottom: 65, left: 90 };
+const xAxisLabelOffset = 50;
 
 const App = () => {
   const classes = useStyles();
@@ -31,12 +31,13 @@ const App = () => {
   const xAxisTickFormat = tickFormat => siFormat(tickFormat).replace('G', 'B');
 
   const xScale = d3.scaleLinear()
-                .domain(d3.extent(data, xValue))
-                .range([0, innerWidth]);
+  .domain(d3.extent(data, xValue))
+  .range([0, innerWidth])
+  .nice();
 
   const yScale = d3.scaleLinear()
-                 .domain(d3.extent(data, yValue))
-                 .range([0, innerHeight]);
+    .domain(d3.extent(data, yValue))
+    .range([0, innerHeight]);
   
   return (
     <div className={classes.root}>
@@ -47,7 +48,7 @@ const App = () => {
           innerHeight={innerHeight} 
           tickFormat={xAxisTickFormat}
         />
-        <AxisLeft yScale={yScale}/>
+        <AxisLeft yScale={yScale} innerWidth={innerWidth}  tickOffset={5}/>
         <text 
           className ='axis-label'
           x={innerWidth/2} 
