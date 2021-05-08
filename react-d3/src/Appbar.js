@@ -25,8 +25,8 @@ const App = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  const xValue = d => d.sepal_length;
-  const xAxisLabel = 'Sepal Length';
+  const xValue = d => d.petal_length;
+  const xAxisLabel = 'Petal Length';
   
   const yValue = d => d.sepal_width;
   const yAxisLabel = 'Sepal Width';
@@ -51,6 +51,7 @@ const App = () => {
           xScale={xScale} 
           innerHeight={innerHeight} 
           tickFormat={xAxisTickFormat}
+          tickOffSet = {5}
         />
           <text 
           className ='axis-label'
@@ -59,7 +60,7 @@ const App = () => {
         >
           {yAxisLabel}
         </text>
-        <AxisLeft yScale={yScale} innerWidth={innerWidth}  tickOffset={5}/>
+        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={5}/>
         <text 
           className ='axis-label'
           x={innerWidth/2} 
@@ -74,6 +75,7 @@ const App = () => {
           yScale={yScale} 
           xValue={xValue} 
           yValue={yValue}
+          circleRadius={7}
           />
       </g>
       </svg>
