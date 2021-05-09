@@ -1,14 +1,22 @@
 import { Tooltip } from '@material-ui/core';
+import { line } from 'd3-shape';
 
 export const Marks = ({ data, xScale, yScale, xValue, yValue, circleRadius }) => 
- data.map(d => (<>
+<>
+<g className="marks" >
+<path 
+      fill ='none'
+      stroke = 'black'
+      d={line()
+      .x(d => xScale(xValue(d)))
+      .y(d => yScale(yValue(d)))(data)}/>
+ {data.map(d => (<>
       <Tooltip title={xValue(d)} placement="top">
       <circle 
-            className="mark" 
             cx={xScale(xValue(d))} 
             cy={yScale(yValue(d))} 
             r = {circleRadius} >
       </circle>
       </Tooltip>
       </>
-))
+))}</g></>;

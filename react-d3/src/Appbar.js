@@ -75,7 +75,7 @@ const App = () => {
           yScale={yScale} 
           xValue={xValue} 
           yValue={yValue}
-          circleRadius={7}
+          circleRadius={3}
           />
       </g>
       </svg>

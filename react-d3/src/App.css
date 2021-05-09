@@ -17,8 +17,12 @@ text {
 .tick text {
   fill: #828883;
 }
-.mark {
+.marks circle{
   fill : #F2DA47
+}
+.marks path{
+  stroke : #F2DA47;
+  stroke-width : 5;
 }
 .axis-label {
   font-size : 1.5em;
