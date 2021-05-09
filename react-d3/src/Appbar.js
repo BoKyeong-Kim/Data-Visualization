@@ -41,7 +41,8 @@ const App = () => {
 
   const yScale = d3.scaleLinear()
     .domain(d3.extent(data, yValue))
-    .range([innerHeight, 0]);
+    .range([innerHeight, 0])
+    .nice();
   
   return (
     <div className={classes.root}>
@@ -51,7 +52,7 @@ const App = () => {
           xScale={xScale} 
           innerHeight={innerHeight} 
           tickFormat={xAxisTickFormat}
-          tickOffSet = {5}
+          tickOffSet = {7}
         />
           <text 
           className ='axis-label'
@@ -60,7 +61,7 @@ const App = () => {
         >
           {yAxisLabel}
         </text>
-        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={5}/>
+        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={7}/>
         <text 
           className ='axis-label'
           x={innerWidth/2} 
