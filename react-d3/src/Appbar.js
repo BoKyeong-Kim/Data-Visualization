@@ -6,6 +6,7 @@ import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
+import { timeFormat } from 'd3';
 
 
 const width = 960;
@@ -25,23 +26,22 @@ const App = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  const xValue = d => d.petal_length;
-  const xAxisLabel = 'Petal Length';
+  const xValue = d => d.timestamp;
+  const xAxisLabel = 'Time';
   
-  const yValue = d => d.sepal_width;
-  const yAxisLabel = 'Sepal Width';
+  const yValue = d => d.temperature;
+  const yAxisLabel = 'Temperature';
 
-  const siFormat = d3.format(".2s");
-  const xAxisTickFormat = tickFormat => siFormat(tickFormat).replace('G', 'B');
+  const xAxisTickFormat = timeFormat("%a");
 
-  const xScale = d3.scaleLinear()
+  const xScale = d3.scaleTime()
   .domain(d3.extent(data, xValue))
   .range([0, innerWidth])
   .nice();
 
   const yScale = d3.scaleLinear()
     .domain(d3.extent(data, yValue))
-    .range([0, innerHeight]);
+    .range([innerHeight, 0]);
   
   return (
     <div className={classes.root}>
