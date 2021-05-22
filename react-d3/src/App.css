@@ -6,7 +6,16 @@ body {
     font-family: 'Josefin Sans', cursive;
   }
 
-.marks path{
-  fill : #F2DA47;
-  stroke : #C0C0BB;
+.marks .contries{
+  fill : #137B80;
 }
+
+.marks .interiors{
+  fill : none;
+  stroke : #43A4A8;
+} 
+
+.marks .sphere{
+  fill : #ececec;
+}
+

@@ -1,6 +1,6 @@
 import { useState,  useEffect } from 'react';
 import * as d3 from "d3";
-import { feature } from 'topojson-client';
+import { feature, mesh } from 'topojson-client';
 
 /*const csvUrl_population = 'https://gist.githubusercontent.com/BoKyeong-Kim/d39d56276edefd0999731e76dbdcb805/raw/d08ce4d95e4bf94261c53d3490deb555f357be36/UN_Population_2019.csv'*/
 /*const csvUrl_iris = 'https://gist.githubusercontent.com/BoKyeong-Kim/65eb63985dfd842abe946b8234c77fac/raw/c205d59d5a2b43c42ed51082a92ab54a941c7b43/iris_dataset';*/
@@ -13,9 +13,12 @@ export const useData = () => {
     console.log(data);
   
     useEffect(() => {
-      d3.json(jsonUrl).then(topojsonData => {
-        const { countries } = topojsonData.objects;
-        setData(feature(topojsonData, countries))
+      d3.json(jsonUrl).then(topology => {
+        const { countries } = topology.objects;
+        setData({
+          contries : feature(topology, countries),
+          interiors : mesh(topology, countries, (a, b) =>  a !== b )
+        });
       });
     }, []);
   
