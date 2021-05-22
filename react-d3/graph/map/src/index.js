@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './AppMenu';
+import Appmap from './Appmap';
 
 const rootElement =  document.getElementById('root');
 ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <Appmap />
     </React.StrictMode>,
     rootElement
 );

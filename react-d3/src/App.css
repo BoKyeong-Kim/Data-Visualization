@@ -5,21 +5,3 @@ body {
     overflow: hidden;
     font-family: 'Josefin Sans', cursive;
   }
-
-.marks .land{
-  fill : #137B80;
-}
-
-.marks .interiors{
-  fill : none;
-  stroke : #43A4A8;
-} 
-
-.marks .sphere{
-  fill : #ececec;
-}
-
-.marks .graticule{
-  fill: none;
-  stroke: #dadada;
-}
