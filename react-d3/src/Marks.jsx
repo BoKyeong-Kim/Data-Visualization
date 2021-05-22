@@ -1,24 +1,12 @@
-import { Tooltip } from '@material-ui/core';
-import { curveNatural, line } from 'd3-shape';
+import { geoEqualEarth, geoPath } from 'd3';
 
-export const Marks = ({ data, xScale, yScale, xValue, yValue, circleRadius }) => 
-<>
+const projection = geoEqualEarth();
+const path = geoPath(projection);
+
+export const Marks = ({ data }) => 
 <g className="marks" >
-<path 
-      fill ='none'
-      stroke = 'black'
-      d={line()
-      .x(d => xScale(xValue(d)))
-      .y(d => yScale(yValue(d)))
-      .curve(curveNatural)(data)}/>
- {
- /*data.map(d => (<>
-      <Tooltip title={xValue(d)} placement="top">
-      <circle 
-            cx={xScale(xValue(d))} 
-            cy={yScale(yValue(d))} 
-            r = {circleRadius} >
-      </circle>
-      </Tooltip>
+ {data.features.map(feature => (<>
+     <path d={path(feature)}/>
       </>
- ))*/}</g></>;
+ ))}
+ </g>;
