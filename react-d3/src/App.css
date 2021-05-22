@@ -6,7 +6,7 @@ body {
     font-family: 'Josefin Sans', cursive;
   }
 
-.marks .contries{
+.marks .land{
   fill : #137B80;
 }
 
@@ -19,3 +19,7 @@ body {
   fill : #ececec;
 }
 
+.marks .graticule{
+  fill: none;
+  stroke: #dadada;
+}
