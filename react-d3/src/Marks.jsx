@@ -5,8 +5,9 @@ const path = geoPath(projection);
 
 export const Marks = ({ data }) => 
 <g className="marks" >
- {data.features.map(feature => (<>
+      <>
+ {data.features.map(feature => (
      <path d={path(feature)}/>
-      </>
  ))}
+ </>
  </g>;
