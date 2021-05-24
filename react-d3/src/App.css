@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 body {
-    margin:0px;
+    margin: 0;
     overflow: hidden;
     font-family: 'Josefin Sans', cursive;
-    font-size: 5em;
-  }
+   
+}
+label, select {
+  font-size: 2em;
+}
+select option {
+  font-size: 1em;
+}

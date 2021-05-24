@@ -5,8 +5,8 @@ import "./App.css";
 const App = () => {
   return (
     <>
+    <div>
     <label for="pet-select">Choose a pet:</label>
-
     <select name="pets" id="pet-select">
         <option value="">--Please choose an option--</option>
         <option value="dog">Dog</option>
@@ -16,6 +16,7 @@ const App = () => {
         <option value="spider">Spider</option>
         <option value="goldfish">Goldfish</option>
     </select>
+    </div>
     </>
 )};
 
