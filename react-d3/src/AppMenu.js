@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import "./App.css";
-
-const Dropdown = ({options, id, selectedValue, onselectionchange}) => (
-  <select id={id} onChange={event => onselectionchange(event.target.value)}>
-    {options.map(({ value, label }) => (
-      <option value={value} selected={value === selectedValue}>
-        {label}
-       </option>
-    ))}
-  </select>
-)
+import { Dropdown } from './Dropdown';
 
 const options = [
   { value : 'dog', label : 'Dog'},
