@@ -11,8 +11,9 @@ const options = [
   { value : 'goldfish', label : 'Goldfish'}
 ];
 
+const initialValue = 'hamster';
 const App = () => {
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState(initialValue);
   console.log(selectedValue)
   return (
     <>
