@@ -4,7 +4,8 @@ import { useData } from './useData';
 import "./App.css";
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
-import { scaleLinear, csv, max, format, extent, tickFormat } from 'd3';
+import { scaleLinear, csv, max, format, extent } from 'd3';
+import { Marks } from './Marks';
 
 const width = 960;
 const menuHeight = 75;
@@ -39,7 +40,8 @@ const App = () => {
 
   const yScale = scaleLinear()
                 .domain(extent(data, yValue))
-                .range([0, innerHeight]);
+                .range([0, innerHeight])
+                .nice();
 
   return (
     <>
@@ -68,6 +70,15 @@ const App = () => {
         {xAxisLabel}
       </text>
       <AxisBottom xScale={xScale} innerHeight={innerHeight} tickOffset={5}/>
+      <Marks 
+        data={data}
+        xScale={xScale}
+        yScale={yScale}
+        xValue={xValue}
+        yValue={yValue}
+        tooltipFormat={siFormat}
+        circleRadius={7}
+      />
       </g>
     </svg>
     </>
