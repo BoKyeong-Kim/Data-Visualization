@@ -12,3 +12,12 @@ label, select {
 select option {
   font-size: 1em;
 }
+.tick line{
+  stroke: #C0C0BB;
+}
+.tick text {
+  fill: #635F5D;
+}
+.mark {
+  fill: #137B80;
+}
