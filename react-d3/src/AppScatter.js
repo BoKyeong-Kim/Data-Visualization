@@ -6,6 +6,7 @@ import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import { scaleLinear, csv, max, format, extent } from 'd3';
 import { Marks } from './Marks';
+import { Dropdown } from './Dropdown';
 
 const width = 960;
 const menuHeight = 75;
@@ -45,6 +46,9 @@ const App = () => {
 
   return (
     <>
+    <label for="x-select">X:</label>
+    
+    <label for="y-select">Y:</label>
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom 
