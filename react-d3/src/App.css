@@ -6,16 +6,10 @@ body {
     font-family: 'Josefin Sans', cursive;
    
 }
-label, select {
-  font-size: 3em;
+pre {
+  font-size: 7em;
 }
-select {
-  font-size: 3em;
-}
-select option {
-  font-size: 1em;
-}
-.tick line{
+.tick line {
   stroke: #C0C0BB;
 }
 .tick text {
@@ -23,4 +17,15 @@ select option {
 }
 .mark {
   fill: #137B80;
+}
+.axis-label {
+  font-size: 2.5em;
+  fill: #635F5D;
+}
+label,
+select {
+  font-size: 3em;
+}
+select option {
+  font-size: 1rem;
 }
