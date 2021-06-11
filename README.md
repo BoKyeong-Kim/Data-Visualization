@@ -20,5 +20,25 @@
 - 이미 파싱된 데이터에 또 파싱하지 않아도 된다.
 
 
+<br>
+
+### refactoring bar chart
+
+각 기능을 컴포넌트로 분리
+
+- AxisBottom
+- AxisLeft
+- Marks
+
+<br>
+
+### bar chart 스타일 변경
+
+group에 style을 지정해주어, xScale의 축을 연한 회색(#C0C0BB)으로 변경
+
+( [참고](https://github.com/amycesal/dataviz-style-guide/blob/master/Sunlight-StyleGuide-DataViz.pdf) )
+
+<br>
+
 
 
