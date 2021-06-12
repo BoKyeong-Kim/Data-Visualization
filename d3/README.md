@@ -58,3 +58,41 @@ d3.scale().linear.domain([0, 1000]).range([0, 10])
 - `range` : 배열 하나를 인자로 받음 → 표현가능한 데이터의 범위를 기재
 
 <br>
+
+### group
+
+- `svg` 의 태그인 `<g>` 로 `svg` 요소들을 묶을 수 있음
+    - `g` 태그를 `append`시키고 `translate` 를 통해 이동
+
+```html
+d3.select("body")
+		.append("svg")
+		.attr("width", 500)
+		.append("g")
+		.attr("transform", "translate(0, 20)");
+```
+
+<br>
+
+
+### axis
+
+- `axis` 는 d3에서 제공하는 축
+- `svg` 에 `axis` 를 그리고 `scale` 을 넘겨주면 적당한 간격으로 축 생성
+- `ticks()` 를 이용하여 간격 설정 가능
+- `call` 로 axis를 인자로 받아 위치를 지정하여 그릴 수 있음
+
+console에서 아래의 코드를 추가하게되면 200*200크기의 svg내에 반지름이 25인 원의 위치는 x=50, y=50에 위치한 그림이 보여진다.
+
+```html
+d3.select("body")
+		.append("svg")
+		.attr("width", 200)
+		.attr("height", 200)
+		.append("circle")
+		.attr("cx", 50)
+		.attr("cy", 50)
+		.attr("r", 25)
+		.style("fill", "purple");
+```
+
