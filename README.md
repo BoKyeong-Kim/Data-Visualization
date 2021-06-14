@@ -40,5 +40,10 @@ group에 style을 지정해주어, xScale의 축을 연한 회색(#C0C0BB)으로
 
 <br>
 
+- js 또는 html을 사용하면 title tag로 팝업을 띄울 수 있음 ([참고](https://www.pluralsight.com/guides/create-tooltips-in-d3js))
+- 하지만 react에서는 적용이 되지않았음
 
+**⇒ material-ui를 사용하여 [tooltip 컴포넌트](https://material-ui.com/components/tooltips/) 사용**
+
+<br>
 
