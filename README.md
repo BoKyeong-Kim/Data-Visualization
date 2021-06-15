@@ -47,3 +47,23 @@ group에 style을 지정해주어, xScale의 축을 연한 회색(#C0C0BB)으로
 
 <br>
 
+
+### convert TopoJson to GeoJson
+
+- GeoJson : 다양한 지리적 데이터 구조를 인코딩하는 형식
+    - Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon의 기하학적 유형을 지원
+    - 추가 프로퍼티를 가진 기하학적 객체는 Feature 객체
+- TopoJson : GeoJson의 확장형으로 토폴로지를 인코딩
+    - 기하학적 구조는 분리되는 대신 arc라는 공유되는 선 세그먼트에서 함께 연결
+    - 중복성을 제거하여 관련 기하학적 구조를 동일한 파일에 효율적으로 저장할 수 있도록 함
+
+<br>
+
+[d3-geo](https://observablehq.com/@d3/world-airports?collection=@d3/d3-geo) 사용 
+
+```jsx
+const projection = geoEqualEarth();
+const path = geoPath(projection);
+```
+
+<br>
