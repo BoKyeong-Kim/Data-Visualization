@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .myclass{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <p class="myclass ">1번째 요소</p>
+    <p>2번째 요소</p>
+    <p class="myclass ">3번째 요소</p>
+
+    <script>
+        d3.selectAll(".myclass ").style('color','blue');
+    </script>
+</body>
+</html>
