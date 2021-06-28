@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <p>에러 : 빨간색 색상으로 지정</p>
+    <p>경고 : 노란색 색상으로 지정</p>
+
+<script>
+    d3.selectAll("p").style("color", function(d, i) {
+            var text = this.innerText;
+        
+            if (text.indexOf("에러") >= 0) {
+                return "red";
+            } else if (text.indexOf("경고") >= 0) {
+                return "yellow";
+            }
+    });
+</script>
+</body>
+</html>
