@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+<script>
+    // body tag에 svg를 500*500으로 구성
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", 500)
+        .attr("height", 500);
+
+    // 구성한 svg에 rect 태그를 구성하여 blue로 채우고 좌표 (100,20)에 50*20의 사각형을 생성
+    var bar1 = svg.append("rect")
+        .attr("fill", "blue")
+        .attr("x", 100)
+        .attr("y", 20)
+        .attr("height", 50)
+        .attr("width", 20)
+
+    // 구성한 svg에 rect 태그를 구성하여 blue로 채우고 좌표 (150,20)에 50*20의 사각형을 생성
+    var bar2 = svg.append("rect")
+        .attr("fill", "blue")
+        .attr("x", 150)
+        .attr("y", 20)
+        .attr("height", 50)
+        .attr("width", 20)
+
+    update();
+
+
+function update() {
+    // bar1을 전환하여 선을 그리는 함수를 사용하여 2초 동안 높이를 100으로 속성 추가
+    bar1.transition()
+        .ease(d3.easeLinear)
+        .duration(2000)
+        .attr("height",100)
+
+    // bar2을 전환하여 선을 그리는 함수를 사용하여 2초를 기다린 후 2초 동안 높이를 100으로 속성 추가
+    bar2.transition()
+        .ease(d3.easeLinear)
+        .duration(2000)
+        .delay(2000)
+        .attr("height",100)
+}
+</script>
+</body>
+</html>
