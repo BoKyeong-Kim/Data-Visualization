@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+    <body>
+        <p></p>
+        <p></p>
+        <p></p>
+        <script>
+            const dData = ['Data', 'Driven', 'Document'];
+
+            const main = d3.select('body')
+                            .selectAll('p')
+                            .append('p')
+                            .style('color', 'green')
+                            .data(dData)
+                            .text((d, i) => {
+                                return [d, i];
+                                }
+                            )
+        </script>
+    </body>
+</html>
