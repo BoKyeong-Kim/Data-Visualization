@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useData } from './useData';
 import "./App.css";
+import ReactDropdown from 'react-dropdown';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
-import { scaleLinear, csv, max, format, extent } from 'd3';
+import { scaleLinear, format, extent } from 'd3';
 import { Marks } from './Marks';
-import { Dropdown } from './Dropdown';
 
 const attributes = [
   { value: 'sepal_length', label: 'Sepal Length' },
@@ -25,7 +25,7 @@ const getLabel = value => {
 };
 
 const width = 960;
-const menuHeight = 75;
+const menuHeight = 80;
 const height = 500 - menuHeight;
 const margin = { top: 20, right: 30, bottom: 65, left: 90 };
 const xAxisLabelOffset = 50;
@@ -67,20 +67,20 @@ const App = () => {
 
   return (
     <>
-     <label for="x-select">X:</label>
-      <Dropdown
-        options={attributes}
-        id="x-select"
-        selectedValue={xAttribute}
-        onSelectedValueChange={setXAttribute}
-      />
-      <label for="y-select">Y:</label>
-      <Dropdown
-        options={attributes}
-        id="y-select"
-        selectedValue={yAttribute}
-        onSelectedValueChange={setYAttribute}
-      />
+    <div className="menus-container">
+        <span className="dropdown-label">X</span>
+        <ReactDropdown
+          options={attributes}
+          value={xAttribute}
+          onChange={({ value }) => setXAttribute(value)}
+        />
+        <span className="dropdown-label">Y</span>
+        <ReactDropdown
+          options={attributes}
+          value={yAttribute}
+          onChange={({ value }) => setYAttribute(value)}
+        />
+      </div>
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
       <AxisBottom

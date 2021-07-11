@@ -10,6 +10,8 @@
     "d3": "^6.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dropdown": "^1.9.2",
+    "react-dropdown-browser": "^1.8.0",
     "react-scripts": "4.0.3",
     "topojson-client": "^3.1.0",
     "web-vitals": "^1.1.1"
